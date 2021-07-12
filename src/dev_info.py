@@ -13,7 +13,7 @@ def dev_info(client, message):
         [InlineKeyboardButton("Join Channel", url="https://t.me/watchlistonfire")]
     ]
     reply_markup = InlineKeyboardMarkup(keyb)
-    message.reply_text("""Made with ❤️ in 🇮🇳 by @catch_punk, @pk_o3.
+    message.reply_text("""Made with ❤️ in 🇮🇳 by @catch_punk, @pk_o3, @TechyNabil_xD(for logo design).
 
 Language: [Python3](https://www.python.org/)
 
