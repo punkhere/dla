@@ -32,7 +32,7 @@ bot = Client(
     "YOUR_SESSION_NAME",
     api_id=1218324,
     api_hash="dd471e72c0f98c92720639d510a364aa",
-    bot_token="1663693380:AAFV_ktkl8ePpn2G3F1CMcoGARe76zq3av4"
+    bot_token="1756769580:AAGM_BAPrjxg5KMq7k_pg2vvIBz8r2NYrpc"
 )
 
 # Adding all functions to Handlers in main() function
