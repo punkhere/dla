@@ -78,7 +78,7 @@ def get_ep_link(client, callback_query):
         pass
     try:
      	di_url1 = ("Download Link 1: "+do[0])
-     except:
+    except:
      	pass
     try:
     	di_url2 = ("Download Link 2: "+do[1])
