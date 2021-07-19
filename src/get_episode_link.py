@@ -77,11 +77,11 @@ def get_ep_link(client, callback_query):
     except:
         pass
     try:
-     	di_url1 = "Download Link 1"
+     	di_url1 = do[0]
     except:
     	pass
     try:
-    	di_url2 = "Download Link 2"
+    	di_url2 = do[1]
     except:
     	pass
 
@@ -114,11 +114,11 @@ def get_ep_link(client, callback_query):
     except:
         pass
     try:
-    	dir1 = rd.get(do[0])
+    	dir1 = rd.get(di_url1)
     except:
     	pass
     try:
-    	dir2 = rd.get(do[1])
+    	dir2 = rd.get(di_url2)
     except:
     	pass
     
