@@ -164,7 +164,8 @@ def get_ep_link(client, callback_query):
     	quality_name9 = di_url2
     except:
     	pass
-    
+    dlink1 = "Download Link 1"
+    dlink2 = "Download Link 2"
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -195,11 +196,11 @@ def get_ep_link(client, callback_query):
     except:
         pass
     try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name8}','lnk':f'{dir1}'})
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{dlink1}','lnk':f'{dir1}'})
     except:
         pass
     try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name9}','lnk':f'{dir2}'})
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{dlink2}','lnk':f'{dir2}'})
     except:
         pass
     
