@@ -2,12 +2,20 @@
 # Encoding = 'utf-8'
 # Licensed under MIT License
 # Special Thanks for gogoanime
-#its catch_punk
+
 from pyrogram import *
 from pyrogram.types import *
 import requests
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
+from anikimiapi import AniKimi
+
+# Initialize AniKimi class
+anime = AniKimi(
+    gogoanime_token="kggbp9liu7ij6sp0tcb9aspb75",
+    auth_token="YvPqB3UXYkVOertRpe8y4nh47w4oWBG4oe6smLbN%2FFpAF7jgEM%2Fe8drDdm3evtuhotehb2H7x5CoFjYsDwa1Jg%3D%3D",
+    host="https://gogoanime.pe/"  
+)
 
 # gets lists of Episdoes link when episode number and anime id is passed as callback_data
 
@@ -37,76 +45,89 @@ def get_ep_link(client, callback_query):
     episode = ep_num_link_get
     # print("Generating Links from", start, "to", end)
     animename = animelink.split("/")
-    URL_PATTERN = 'https://gogoanime.ai/{}-episode-{}'
-    url = URL_PATTERN.format(str_qry_final, ep_num_link_get)
-    srcCode = requests.get(url)
-    plainText = srcCode.text
-    soup = BeautifulSoup(plainText, "lxml")
-    source_url = soup.find("li", {"class": "dowloads"}).a
-    vidstream_link = source_url.get('href')
+    anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
     # print(vidstream_link)
-    URL = vidstream_link
-    dowCode = requests.get(URL)
-    data = dowCode.text
-    soup = BeautifulSoup(data, "lxml")
     try:
-        dow_url1 = soup.findAll('div', {'class': 'dowload'})[0].find('a')
+        dow_url1 = "hdp"
     except:
         pass
     try:
-        dow_url2 = soup.findAll('div', {'class': 'dowload'})[1].find('a')
+        dow_url2 = "360p"
     except:
         pass
     try:
-        dow_url3 = soup.findAll('div', {'class': 'dowload'})[2].find('a')
+        dow_url3 = "480p"
     except:
         pass
     try:
-        dow_url4 = soup.findAll('div', {'class': 'dowload'})[3].find('a')
+        dow_url4 = "720p"
     except:
         pass
     try:
-        dow_url5 = soup.findAll('div', {'class': 'dowload'})[4].find('a')
+        dow_url5 = "1080p"
     except:
         pass
     try:
-        dow_url6 = soup.findAll('div', {'class': 'dowload'})[5].find('a')
+        dow_url6 = "streamsb"
     except:
         pass
     try:
-        dow_url7 = soup.findAll('div', {'class': 'dowload'})[6].find('a')
+        dow_url7 = "xstreamcdn"
     except:
         pass
+	try:
+		dow_url8 = "streamtape"
+		pass
+	try:
+		dow_url9 = "mixdrop"
+		pass
+	try:
+		dow_url10 = "mp4upload"
+		pass
+	try:
+		dow_url11 = "doodstream"
+		pass
 
     try:
-        downlink1 = dow_url1.get('href')
+        downlink1 = anime_link.link_hdp
     except:
         pass
     try:
-        downlink2 = dow_url2.get('href')
+        downlink2 = anime_link.link_360p
     except:
         pass
     try:
-        downlink3 = dow_url3.get('href')
+        downlink3 = anime_link.link_480p
     except:
         pass
     try:
-        downlink4 = dow_url4.get('href')
+        downlink4 = anime_link.link_720p
     except:
         pass
     try:
-        downlink5 = dow_url5.get('href')
+        downlink5 = anime_link.link_1080p
     except:
         pass
     try:
-        downlink6 = dow_url6.get('href')
+        downlink6 = anime_link.link_streamsb
     except:
         pass
     try:
-        downlink7 = dow_url7.get('href')
+        downlink7 = anime_link.link_xstreamcdn
     except:
         pass
-    
+	try:
+		downlink8 = anime_link.link_streamtape
+		pass
+    try:
+		downlink9 = anime_link.link_mixdrop
+		pass
+	try:
+		downlink10 = anime_link.link_mp4upload
+		pass
+	try:
+		downlink11 = anime_link.link_doodstream
+		pass
     try:
         str1 = dow_url1.string
         str_spl1 = str1.split()
@@ -169,7 +190,38 @@ def get_ep_link(client, callback_query):
         quality_name7 = str_original_7.join(str_spl7)
     except:
         pass
-    
+    try:
+        str8 = dow_url8.string
+        str_spl8 = str8.split()
+        str_spl8.remove(str_spl8[0])
+        str_original_8 = ""
+        quality_name8 = str_original_8.join(str_spl8)
+    except:
+        pass
+	try:
+        str9 = dow_url9.string
+        str_spl9 = str9.split()
+        str_spl9.remove(str_spl9[0])
+        str_original_9 = ""
+        quality_name9 = str_original_9.join(str_spl9)
+    except:
+        pass
+	try:
+        str10 = dow_ur10.string
+        str_spl10 = str10.split()
+        str_spl10.remove(str_spl10[0])
+        str_original_10 = ""
+        quality_name10 = str_original_10.join(str_spl10)
+    except:
+        pass
+	try:
+        str11 = dow_url11.string
+        str_spl11 = str11.split()
+        str_spl11.remove(str_spl11[0])
+        str_original_11 = ""
+        quality_name11 = str_original_11.join(str_spl11)
+    except:
+        pass
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -199,7 +251,18 @@ def get_ep_link(client, callback_query):
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name7}','lnk':f'{downlink7}'})
     except:
         pass
-    
+	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name8}','lnk':f'{downlink8}'})
+    except:
+        pass
+	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name9}','lnk':f'{downlink9}'})
+    except:
+        pass
+     res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name10}','lnk':f'{downlink10}'})
+    except:
+        pass
+	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name11}','lnk':f'{downlink11}'})
+    except:
+        pass
     
     if ep_num_link_get == last_ep:
         key = []
@@ -214,11 +277,8 @@ def get_ep_link(client, callback_query):
                     (InlineKeyboardButton("↔️Back to list↔️", callback_data=f"dl_{str_qry_final}"))])
         reply_markup = InlineKeyboardMarkup(keys)
         query.edit_message_text(text=f"""You are now watching **Episode {ep_num_link_get}** of **{tit_url}** :-
-
 Please share the bot if you like it ☺️.
-
 __Note: Select HDP link for faster streaming.__
-
 **This the Last Episode of the Series 🥳🥳🥳**""", reply_markup=reply_markup, parse_mode="markdown")
     elif ep_num_link_get == 1:
         key = []
@@ -233,9 +293,7 @@ __Note: Select HDP link for faster streaming.__
              (InlineKeyboardButton("Next Ep ⏩", callback_data=f"eps_{ep_num_link_get + 1}_{str_qry_final}"))])
         reply_markup = InlineKeyboardMarkup(keys)
         query.edit_message_text(text=f"""You are now watching **Episode {ep_num_link_get}** of **{tit_url}** :-
-
 Please share the bot if you like it ☺️.
-
 __Note: Select HDP link for faster streaming.__""", reply_markup=reply_markup, parse_mode="markdown")
     else:
         key = []
@@ -251,7 +309,5 @@ __Note: Select HDP link for faster streaming.__""", reply_markup=reply_markup, p
              (InlineKeyboardButton("Next Ep ⏩", callback_data=f"eps_{ep_num_link_get + 1}_{str_qry_final}"))])
         reply_markup = InlineKeyboardMarkup(keys)
         query.edit_message_text(text=f"""You are now watching **Episode {ep_num_link_get}** of **{tit_url}** :-
-
 Please share the bot if you like it ☺️.
-
 __Note: Select HDP link for faster streaming.__""", reply_markup=reply_markup, parse_mode="markdown")
