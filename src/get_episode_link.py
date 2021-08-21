@@ -75,18 +75,7 @@ def get_ep_link(client, callback_query):
         dow_url7 = "xstreamcdn"
     except:
         pass
-	try:
-		dow_url8 = "streamtape"
-		pass
-	try:
-		dow_url9 = "mixdrop"
-		pass
-	try:
-		dow_url10 = "mp4upload"
-		pass
-	try:
-		dow_url11 = "doodstream"
-		pass
+	
 
     try:
         downlink1 = anime_link.link_hdp
@@ -116,18 +105,7 @@ def get_ep_link(client, callback_query):
         downlink7 = anime_link.link_xstreamcdn
     except:
         pass
-	try:
-		downlink8 = anime_link.link_streamtape
-		pass
-    try:
-		downlink9 = anime_link.link_mixdrop
-		pass
-	try:
-		downlink10 = anime_link.link_mp4upload
-		pass
-	try:
-		downlink11 = anime_link.link_doodstream
-		pass
+	
     try:
         str1 = dow_url1.string
         str_spl1 = str1.split()
@@ -190,38 +168,7 @@ def get_ep_link(client, callback_query):
         quality_name7 = str_original_7.join(str_spl7)
     except:
         pass
-    try:
-        str8 = dow_url8.string
-        str_spl8 = str8.split()
-        str_spl8.remove(str_spl8[0])
-        str_original_8 = ""
-        quality_name8 = str_original_8.join(str_spl8)
-    except:
-        pass
-	try:
-        str9 = dow_url9.string
-        str_spl9 = str9.split()
-        str_spl9.remove(str_spl9[0])
-        str_original_9 = ""
-        quality_name9 = str_original_9.join(str_spl9)
-    except:
-        pass
-	try:
-        str10 = dow_ur10.string
-        str_spl10 = str10.split()
-        str_spl10.remove(str_spl10[0])
-        str_original_10 = ""
-        quality_name10 = str_original_10.join(str_spl10)
-    except:
-        pass
-	try:
-        str11 = dow_url11.string
-        str_spl11 = str11.split()
-        str_spl11.remove(str_spl11[0])
-        str_original_11 = ""
-        quality_name11 = str_original_11.join(str_spl11)
-    except:
-        pass
+    
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -251,18 +198,7 @@ def get_ep_link(client, callback_query):
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name7}','lnk':f'{downlink7}'})
     except:
         pass
-	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name8}','lnk':f'{downlink8}'})
-    except:
-        pass
-	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name9}','lnk':f'{downlink9}'})
-    except:
-        pass
-     res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name10}','lnk':f'{downlink10}'})
-    except:
-        pass
-	 res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name11}','lnk':f'{downlink11}'})
-    except:
-        pass
+	
     
     if ep_num_link_get == last_ep:
         key = []
