@@ -5,4 +5,5 @@ requests
 requests_html
 redis
 anikimiapi
+pyshorteners
 
