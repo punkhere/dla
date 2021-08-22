@@ -52,23 +52,23 @@ def get_ep_link(client, callback_query):
    
     anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
     try:
-        downlink1 = anime_link.link_hdp
+        downlink1 = "https://www.google.com/"
     except:
         pass
     try:
-        downlink2 = anime_link.link_360p
+        downlink2 = "https://www.google.com/"
     except:
         pass
     try:
-        downlink3 = anime_link.link_480p
+        downlink3 = "https://www.google.com/"
     except:
         pass
     try:
-        downlink4 = anime_link.link_720p
+        downlink4 = "https://www.google.com/"
     except:
         pass
     try:
-        downlink5 = anime_link.link_1080p
+        downlink5 = "https://www.google.com/"
     except:
         pass
     
