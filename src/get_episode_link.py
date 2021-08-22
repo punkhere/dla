@@ -45,11 +45,12 @@ def get_ep_link(client, callback_query):
     episode = ep_num_link_get
     # print("Generating Links from", start, "to", end)
     animename = animelink.split("/")
-	anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
+	
+	
     
     
    
-
+    anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
     try:
         downlink1 = anime_link.link_hdp
     except:
