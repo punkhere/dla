@@ -9,6 +9,9 @@ import requests
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from anikimiapi import AniKimi
+import pyshorteners
+
+sry = pyshorteners.Shortener()
 
 # Initialize AniKimi class
 anime = AniKimi(
@@ -46,32 +49,44 @@ def get_ep_link(client, callback_query):
     # print("Generating Links from", start, "to", end)
     animename = animelink.split("/")
 	
-	
+
+
     
     
    
     anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
     try:
-        downlink1 = "https://tinyurl.com/ydrwh5oc"
+        downlink1 = sry.tinyurl.short(anime_link.link_hdp)
     except:
         pass
     try:
-        downlink2 = "https://www.google.com/"
+        downlink2 = sry.tinyurl.short(anime_link.link_360p)
     except:
         pass
     try:
-        downlink3 = "https://www.google.com/"
+        downlink3 = sry.tinyurl.short(anime_link.link_480p)
     except:
         pass
     try:
-        downlink4 = "https://www.google.com/"
+        downlink4 = sry.tinyurl.short(anime_link.link_720p)
     except:
         pass
     try:
-        downlink5 = "https://www.google.com/"
+        downlink5 = sry.tinyurl.short(anime_link.link_1080p)
     except:
         pass
-    
+    try:
+        downlink6 = sry.tinyurl.short(anime_link.link_streamsb)
+    except:
+        pass
+    try:
+        downlink7 = sry.tinyurl.short(anime_link.link_xstreamcdn)
+    except:
+        pass
+    try:
+    	dir1 = sry.tinyurl.short(anime_link.link_streamtape)
+    except:
+    	pass
     
     try:
         quality_name1 = "hdp"
@@ -98,7 +113,20 @@ def get_ep_link(client, callback_query):
     except:
         pass
     
-    
+    try:
+        quality_name6 = "streamsb"
+    except:
+        pass
+
+    try:
+        quality_name7 = "xstreamcdn"
+    except:
+        pass
+    try:
+    	quality_name8 = "streamtape"
+    except:
+    	pass
+    dlink1 = "⬇️Download⬇️"
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -120,7 +148,18 @@ def get_ep_link(client, callback_query):
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name5}','lnk':f'{downlink5}'})
     except:
         pass
-
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name6}','lnk':f'{downlink6}'})
+    except:
+        pass
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name7}','lnk':f'{downlink7}'})
+    except:
+        pass
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{dlink1}','lnk':f'{dir1}'})
+    except:
+        pass
     
     
     if ep_num_link_get == last_ep:
