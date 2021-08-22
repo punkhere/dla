@@ -71,18 +71,7 @@ def get_ep_link(client, callback_query):
         downlink5 = anime_link.link_1080p
     except:
         pass
-    try:
-        downlink6 = anime_link.link_streamsb
-    except:
-        pass
-    try:
-        downlink7 = anime_link.link_xstreamcdn
-    except:
-        pass
-    try:
-    	dir1 = anime_link.link_streamtape
-    except:
-    	pass
+    
     
     try:
         quality_name1 = "hdp"
@@ -109,20 +98,7 @@ def get_ep_link(client, callback_query):
     except:
         pass
     
-    try:
-        quality_name6 = "streamsb"
-    except:
-        pass
-
-    try:
-        quality_name7 = "xstreamcdn"
-    except:
-        pass
-    try:
-    	quality_name8 = "streamtape"
-    except:
-    	pass
-    dlink1 = "⬇️Download⬇️"
+    
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -144,18 +120,7 @@ def get_ep_link(client, callback_query):
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name5}','lnk':f'{downlink5}'})
     except:
         pass
-    try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name6}','lnk':f'{downlink6}'})
-    except:
-        pass
-    try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name7}','lnk':f'{downlink7}'})
-    except:
-        pass
-    try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{dlink1}','lnk':f'{dir1}'})
-    except:
-        pass
+
     
     
     if ep_num_link_get == last_ep:
