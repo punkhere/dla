@@ -52,7 +52,7 @@ def get_ep_link(client, callback_query):
    
     anime_link =  anime.get_episode_link(animeid= str_qry_final, episode_num= ep_num_link_get)
     try:
-        downlink1 = "https://www.google.com/"
+        downlink1 = "https://tinyurl.com/ydrwh5oc"
     except:
         pass
     try:
