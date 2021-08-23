@@ -1,3 +1,4 @@
+
 # Copyright © 2021 BaraniARR
 # Encoding = 'utf-8'
 # Licensed under MIT License
@@ -87,7 +88,18 @@ def get_ep_link(client, callback_query):
     	dir1 = sry.tinyurl.short(anime_link.link_streamtape)
     except:
     	pass
-    
+    try:
+        downlink9 = sry.tinyurl.short(anime_link.link_mixdrop)
+    except:
+        pass
+    try:
+        downlink10 = sry.tinyurl.short(anime_link.link_mp4upload)
+    except:
+        pass
+    try:
+        downlink11 = sry.tinyurl.short(anime_link.link_doodstream)
+    except:
+        pass
     try:
         quality_name1 = "hdp"
     except:
@@ -126,7 +138,19 @@ def get_ep_link(client, callback_query):
     	quality_name8 = "streamtape"
     except:
     	pass
-    dlink1 = "⬇️Download⬇️"
+    try:
+        quality_name9 = "mixdrop"
+    except:
+        pass
+    try:
+        quality_name10 = "mp4upload"
+    except:
+        pass
+    try:
+        quality_name11 = "doodstream"
+    except:
+        pass
+    
     res_list = []
     try:
         res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name1}','lnk':f'{downlink1}'})
@@ -157,7 +181,19 @@ def get_ep_link(client, callback_query):
     except:
         pass
     try:
-        res_list.append({'num':f'{ep_num_link_get}','qual':f'{dlink1}','lnk':f'{dir1}'})
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name8}','lnk':f'{dir1}'})
+    except:
+        pass
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name9}','lnk':f'{downlink9}'})
+    except:
+        pass
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name10}','lnk':f'{downlink10}'})
+    except:
+        pass
+    try:
+        res_list.append({'num':f'{ep_num_link_get}','qual':f'{quality_name11}','lnk':f'{downlink11}'})
     except:
         pass
     
