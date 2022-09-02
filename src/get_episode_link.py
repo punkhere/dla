@@ -41,9 +41,9 @@ def get_ep_link(client, callback_query):
     r = requests.get(ur).json()
     k = []
 
-    for links in rees:
-        {k.append(rees['Referer']),
-        k.append(rees['sources'][0]['file']),
+    for links in r:
+        {k.append(r['Referer']),
+        k.append(r['sources'][0]['file']),
         k.append(f"http://simple-anime.herokuapp.com/videos/{str_qry_final}-episode-{ep_num_link_get}")
         }
     
