@@ -37,12 +37,14 @@ def get_ep_link(client, callback_query):
     episode = ep_num_link_get
     # print("Generating Links from", start, "to", end)
     animename = animelink.split("/")
+    do = r['Referer']
+    dow = do.replace('streaming.php', 'download')
     ur = f"https://animeapi-demo.herokuapp.com/gogoanime/watch/{str_qry_final}-episode-{ep_num_link_get}"
     r = requests.get(ur).json()
     k = []
 
     for links in r:
-        {k.append(r['Referer']),
+        {k.append(dow),
         k.append(r['sources'][0]['file']),
         k.append(f"http://simple-anime.herokuapp.com/videos/{str_qry_final}-episode-{ep_num_link_get}")
         }
